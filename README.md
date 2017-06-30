@@ -13,7 +13,7 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true,add_index :users,name: string|
+|name|string|null: false, foreign_key: true,add_index :users, :name, unique: true|
 
 ### Association
 - has_many :posts
@@ -22,7 +22,7 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true,add_index :users,name: string|
+|name|string|null: false, foreign_key: true,add_index :users, :name, unique: true|
 
 ### Association
 - has_many :posts
