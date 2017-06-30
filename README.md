@@ -17,7 +17,7 @@
 
 ### Association
 - has_many :posts
-- has_many :groups,:through => :members
+- has_many :groups,through: members
 
 ## groupsテーブル
 |Column|Type|Options|
@@ -26,12 +26,12 @@
 
 ### Association
 - has_many :posts
-- has_many :users,:through => :members
+- has_many :users,through: members
 
 ## postsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
+|body|text|
 |image|string|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
