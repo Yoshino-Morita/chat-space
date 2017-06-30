@@ -13,20 +13,20 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true|
+|name|string|null: false, foreign_key: true,add_index :users,name: string|
 
 ### Association
 - has_many :posts
-- has_many :groups,through => :members
+- has_many :groups,:through => :members
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foreign_key: true|
+|name|string|null: false, foreign_key: true,add_index :users,name: string|
 
 ### Association
 - has_many :posts
-- has_many :groups,through => :members
+- has_many :users,:through => :members
 
 ## postsテーブル
 |Column|Type|Options|
