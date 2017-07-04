@@ -1,13 +1,39 @@
+
 .chat
+  .header チャットグループが作成されました。
+.wrapper
   .chat-side
     .chat-side__user SampleName
-    %ul.chat-side__groups
-    %li.chat-side__group SampleGruop1
-    %p.chat-side__message SampleMessage
+    .chat-side__contents
+      %ul.chat-side__groups
+      %li.chat-side__group SampleGruop1
+      %p.chat-side__message まだメッセージはありません
+      %li.chat-side__group SampleGruop2
+      %p.chat-side__message まだメッセージはありません
+      %li.chat-side__group SampleGruop3
+      %p.chat-side__message まだメッセージはありません
+      %li.chat-side__group SampleGruop4
+      %p.chat-side__message まだメッセージはありません
 
 
-
-
-
-
- .chat-main
+  .chat-main
+    .chat-main__title   Sampleグループ
+    .chat-main__member  Members:sample,sample
+    .chat-main__contents
+      %ul.chat-main__post
+      %li.chat-main__name SampleName 1
+      / %p.chat-main__time 2016/12/07
+      %p.chat-main__message こんにちは
+      %li.chat-main__name SampleName 2
+      / %p.chat-main__time 2016/12/07
+      %p.chat-main__message こんばんわ
+      %li.chat-main__name SampleName 3
+      / %p.chat-main__time 2016/12/07
+      %p.chat-main__message おやすみ
+      %li.chat-main__name SampleName 4
+      / %p.chat-main__time 2016/12/07
+      %p.chat-main__message おはよう
+    .chat-main__send
+      %form{:action => " ", :method => "post"}
+      %input.chat-input{:placeholder => "type a message",:name => "name",:type => "text"}/
+      %input.chat-send{:type => "submit", :value => "Send"}/
