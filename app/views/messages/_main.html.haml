@@ -1,0 +1,25 @@
+.chat-main
+  .right-header
+    %a.right-header__button{ href: 'http://google.co.jp'}Edit
+
+  .left-header
+    .chat-main__title   Sampleグループ
+    .chat-main__member  Members:sample,sample
+  .chat-main__contents
+    %ul.chat-main__post
+    %li.chat-main__name SampleName 1
+    / %p.chat-main__time 2016/12/07
+    %p.chat-main__message こんにちは
+    %li.chat-main__name SampleName 2
+    / %p.chat-main__time 2016/12/07
+    %p.chat-main__message こんばんわ
+    %li.chat-main__name SampleName 3
+    / %p.chat-main__time 2016/12/07
+    %p.chat-main__message おやすみ
+    %li.chat-main__name SampleName 4
+    / %p.chat-main__time 2016/12/07
+    %p.chat-main__message おはよう
+  .chat-main__send
+    %form{:action => " ", :method => "post"}
+    %input.chat-input{:placeholder => "type a message",:name => "name",:type => "text"}/
+    %input.chat-send{:type => "submit", :value => "Send"}/

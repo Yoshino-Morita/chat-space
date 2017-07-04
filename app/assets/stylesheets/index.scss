@@ -1,6 +1,7 @@
 $side-message-color: #FFFFFF;
 $main-message-color: #434A54;
 $side-content-width: 300px;
+$content-height:calc(100vh - 106px);
 
 html,body{
   height: 100%;
@@ -11,16 +12,13 @@ html,body{
 .chat{
  height: 100vh;
  width: 100vw;
+ //height: $base-height;
 
 .header{
   background-color: #38AEF0;
   color:$side-message-color;
   text-align: center;
   }
-.wrapper{
-  display:flex;
-}
-
 .chat-side{
   width: $side-content-width;
   float:left;
@@ -54,24 +52,39 @@ html,body{
 .chat-main{
   float: right;
   width: calc(100vw - 300px);
+  .right-header{
+    float: right;
+    margin-top: 28px;
+    padding-right: 40px;
+    .right-header__button{
+    color: #99ccff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #99ccff;
+    }
+  }
   .chat-main__title{
+   float: left;
    font-size: 20px;
    line-height: 20px;
    margin-top: 35px;
    padding: 0 40px 0 40px;
-   color: #333333;
- }
+  color: #333333;
+  }
   .chat-main__member{
     font-size: 12px;
     line-height: 12px;
-    margin-top: 15px;
-    padding: 0 40px 0 40px;
+    padding: 15px 40px 0 40px;
     color: #999999;
+    clear: both;
     }
   .chat-main__contents{
   background-color: #FAFAFA;
   padding: 46px 40px 0 40px;
-  height: calc(100vw - 106px - 90px);
+  height: calc(100vw - 106px -90px);
+  padding-bottom: 49px;
   }
   .chat-main__post{
   }
