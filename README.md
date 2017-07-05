@@ -14,6 +14,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false,add_index :users, :name, unique: true|
+|mail|string|null: false,unique: true|
 
 ### Association
 - has_many :posts
