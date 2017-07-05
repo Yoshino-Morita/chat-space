@@ -20,11 +20,7 @@
         .field
           .field-label
             = f.label :password
-            - if @validatable
-              %em
-              (#{@minimum_password_length} characters minimum)
-              %br/
-            %i (英数字8文字以上)
+           %i (英数字8文字以上)
           .field-input
             = f.password_field :password, autocomplete: "off"
         .field
