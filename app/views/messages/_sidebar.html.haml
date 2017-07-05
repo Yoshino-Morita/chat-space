@@ -2,7 +2,8 @@
   .chat-side__user SampleName
   %ul.chat-side__icons
     %li.chat-side__icon
-      %i.fa.fa-cog{ "aria-hidden" => "true" }
+      = link_to edit_user_path(current_user),method: :get do
+        %i.fa.fa-cog
     %li.chat-side__icon
       %i.fa.fa-pencil-square-o{ "aria-hidden" => "true" }
   .chat-side__contents
