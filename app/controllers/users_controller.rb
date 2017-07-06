@@ -12,9 +12,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+  end
+
+  def after_sign_out_path_for(resource)
+    '/users/sign_in'
+  end
+
+  def new
+  end
+
   private
   def user_params
     params.require(:user).permit(:name,:email)
   end
 
+  def move_to_index
+     redirect_to action: :new unless user_signed_in?
+  end
 end
