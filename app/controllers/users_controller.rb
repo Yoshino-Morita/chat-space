@@ -12,7 +12,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def create
+  end
+
   def destroy
+     @user = User.find(params[:id])
+    if @user.delete
+       flash[:alert] = "ログアウトしました"
+    end
   end
 
   def new
