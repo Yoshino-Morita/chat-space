@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
+
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
     user = User.find(params[:id])
-    if user.id = current_user.id
-    user.update(user_params)
+    if user.update(user_params)
+       redirect_to messages_path
     else
-      redirect_to action: :edit
+      # フラッシュメッセージを使用
     end
   end
 
