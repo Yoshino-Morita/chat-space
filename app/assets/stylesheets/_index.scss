@@ -9,7 +9,7 @@ html,body{
  width: 100vw;
   .header{
     background-color: #38AEF0;
-    color:$side-message-color;
+    color:$white-color;
     text-align: center;
     }
     .chat-side{
@@ -21,7 +21,7 @@ html,body{
        font-size: 16px;
        font-weight: bold;
        background-color: $side-user-bg-color;
-       color: $side-message-color;
+       color: $white-color;
        padding: 0 20px 0 20px;
        float: left;
       }
@@ -32,7 +32,7 @@ html,body{
         }
         &__icon{
           list-style: none;
-          color: $side-message-color;
+          color: $white-color;
           background-color: $side-user-bg-color;
           margin: 22px 0 0 10px ;
           float:right;
@@ -45,11 +45,11 @@ html,body{
        &__group{
         font-size: 15px;
         list-style: none;
-        color: $side-message-color;
+        color: $white-color;
         padding: 20px 20px 0 20px;
         }
         &__message{
-        color: $side-message-color;
+        color: $white-color;
         font-size: 11px;
         padding: 5px 20px 20px 20px;
         }
@@ -65,11 +65,11 @@ html,body{
         padding-right: 40px;
         float: right;
         .right-header__button{
-          color: #99ccff;
+          color: $right-header__bluebutton;
           text-decoration: none;
           border-style: solid;
           border-width: 1px;
-          border-color: #99ccff;
+          border-color: $right-header__bluebutton;
           padding: 10px 20px;
         }
        }
@@ -121,7 +121,7 @@ html,body{
       .main-icon{
         height: 40px;
         width: 20px;
-        background-color: #FFFFFF;
+        background-color: $white-color;
         padding: 10px 10px 0 0;
         margin: 0 auto;
         float: left;
@@ -129,7 +129,7 @@ html,body{
       .chat-send{
         height: 50px;
         width:100px;
-        color: #FFFFFF;
+        color: $white-color;
         background-color: #38AEF0;
         outline: 0;
         border: none;
