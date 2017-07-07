@@ -5,7 +5,8 @@
       = link_to edit_user_path(current_user),method: :get do
         %i.fa.fa-cog
     %li.chat-side__icon
-      %i.fa.fa-pencil-square-o{ "aria-hidden": :true }
+      = link_to new_group_path(current_user),method: :get do
+        %i.fa.fa-pencil-square-o
   .chat-side__contents
     %ul.chat-side__groups
     %li.chat-side__group SampleGruop1
