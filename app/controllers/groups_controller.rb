@@ -5,9 +5,18 @@ class GroupsController < ApplicationController
   def update
   end
 
+  def new
+    @group = Group.new
+  end
+
   def create
   end
 
-  def new
-  end
+
+
+  #次に使用
+  # private
+  # def group_params
+  #   params.require(:group).permit(:name)
+  # end
 end
