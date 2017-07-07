@@ -2,10 +2,10 @@
   .chat-side__user SampleName
   %ul.chat-side__icons
     %li.chat-side__icon
-      = link_to edit_user_path(current_user),method: :get do
+      = link_to edit_user_path(current_user) do
         %i.fa.fa-cog
     %li.chat-side__icon
-      = link_to new_group_path(current_user),method: :get do
+      = link_to new_group_path(current_user) do
         %i.fa.fa-pencil-square-o
   .chat-side__contents
     %ul.chat-side__groups
