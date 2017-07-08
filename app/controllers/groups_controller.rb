@@ -10,13 +10,11 @@ class GroupsController < ApplicationController
   end
 
   def create
+      redirect_to messages_path
   end
 
-
-
-  #次に使用
   # private
   # def group_params
-  #   params.require(:group).permit(:name)
+  #   params.require(:group).permit(:id,:name)
   # end
 end
