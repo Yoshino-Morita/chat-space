@@ -6,6 +6,9 @@
         %h2.errors
           = @group.errors.count
           件のエラーがあります。
+        %ul
+        - @group.errors.full_messages.each do |msg|
+          %li= msg
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label "グループ名", class: 'chat-group-form__label'
