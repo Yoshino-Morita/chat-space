@@ -10,11 +10,17 @@ class GroupsController < ApplicationController
   end
 
   def create
-      redirect_to messages_path
+    @group = Group.new(group_params)
+    if @group.save
+       redirect_to root_path, notice: 'グループの作成が完了しました'
+    else
+      render :new
+    end
   end
 
-  # private
-  # def group_params
-  #   params.require(:group).permit(:id,:name)
-  # end
+  private
+
+  def group_params
+    params.require(:group).permit(:name, user_ids: [])
+  end
 end
