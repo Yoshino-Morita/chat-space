@@ -8,12 +8,7 @@
       = link_to new_group_path(current_user) do
         %i.fa.fa-pencil-square-o
   .chat-side__contents
-    %ul.chat-side__groups
-    %li.chat-side__group SampleGruop1
-    %p.chat-side__message まだメッセージはありません
-    %li.chat-side__group SampleGruop2
-    %p.chat-side__message まだメッセージはありません
-    %li.chat-side__group SampleGruop3
-    %p.chat-side__message まだメッセージはありません
-    %li.chat-side__group SampleGruop4
-    %p.chat-side__message まだメッセージはありません
+    - @groups.each  do |group|
+      %li.chat-side__group
+        = content_tag(:p, group.name)
+      %p.chat-side__message まだメッセージはありません
