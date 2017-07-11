@@ -60,12 +60,15 @@ html,body{
         padding-right: 40px;
         float: right;
         .right-header__button{
-          color: $right-header__bluebutton;
-          text-decoration: none;
           border-style: solid;
           border-width: 1px;
           border-color: $right-header__bluebutton;
-          padding: 10px 20px;
+          padding: 0 20px;
+          a{
+            color: $right-header__bluebutton;
+            font-size: 16px;
+            text-decoration: none;
+          }
         }
        }
       &__title{

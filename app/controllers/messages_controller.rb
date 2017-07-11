@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
 
   def index
+    @groups = current_user.groups
   end
 
   def new
@@ -10,4 +11,3 @@ class MessagesController < ApplicationController
   end
 
 end
-

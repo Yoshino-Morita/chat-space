@@ -1,6 +1,7 @@
 .chat-main
   .right-header
-    %a.right-header__button{ href: 'http://google.co.jp'}Edit
+    .right-header__button
+      = link_to "Edit", "/groups/2/edit"
   .left-header
     .chat-main__title   Sampleグループ
     .chat-main__member  Members:sample,sample
