@@ -17,7 +17,7 @@
 |mail|string|null: false,unique: true|
 
 ### Association
-- has_many :posts
+- has_many :messages
 - has_many :groups,through: members
 
 ## groupsテーブル
@@ -26,10 +26,10 @@
 |name|string|null: false|
 
 ### Association
-- has_many :posts
+- has_many :messages
 - has_many :users,through: members
 
-## postsテーブル
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |body|text|
@@ -38,6 +38,6 @@
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- has_many :users
-- has_many :groups
+- belongs_to :user
+- belongs_to :group
 

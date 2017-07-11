@@ -1,24 +1,24 @@
 .chat-main
   .right-header
     .right-header__button
-      = link_to "Edit", "/groups/2/edit"
+      = link_to "Edit","/groups/2/edit"
   .left-header
-    .chat-main__title   Sampleグループ
-    .chat-main__member  Members:sample,sample
+    .chat-main__title
+      = @group.name
+    .chat-main__member
+      - @group.users.each do |user|
+        = user.name
   .chat-main__contents
-    %ul.chat-main__post
-    %li.chat-main__name SampleName 1
-    / %p.chat-main__time 2016/12/07
-    %p.chat-main__message こんにちは
-    %li.chat-main__name SampleName 2
-    / %p.chat-main__time 2016/12/07
-    %p.chat-main__message こんばんわ
-    %li.chat-main__name SampleName 3
-    / %p.chat-main__time 2016/12/07
-    %p.chat-main__message おやすみ
-    %li.chat-main__name SampleName 4
-    / %p.chat-main__time 2016/12/07
-    %p.chat-main__message おはよう
+    / = form_for @messages, html{class = 'chat-group-form__input'} do |f|
+    /   %ul.chat-main__post
+    /     %li.chat-main__name SampleName 1
+    /       %p.chat-main__message こんにちは
+    /     %li.chat-main__name SampleName 2
+    /       %p.chat-main__message こんばんわ
+    /     %li.chat-main__name SampleName 3
+    /       %p.chat-main__message おやすみ
+    /     %li.chat-main__name SampleName 4
+    /       %p.chat-main__message おはよう
   .chat-main__send
     %form{:action => " ", :method => "post"}
     %input.chat-input{:placeholder => "type a message",:name => "name",:type => "text"}/
