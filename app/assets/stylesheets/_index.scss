@@ -19,6 +19,7 @@ html,body{
        color: $white-color;
        padding: 0 20px 0 20px;
        float: left;
+       position: fixed;
       }
         &__icons{
       height: 82px;
@@ -27,15 +28,18 @@ html,body{
         }
         &__icon{
           list-style: none;
-          color: $white-color;
           background-color: $side-user-bg-color;
           margin: 22px 0 0 10px ;
           float:right;
+        }
+        .symbol{
+          color: $white-color;
         }
         &__contents{
         background-color: #2f3e51;
         clear: both;
         height: calc(100vh - 106px);
+        overflow: scroll;
         }
        &__group{
         font-size: 15px;
@@ -90,6 +94,7 @@ html,body{
       background-color: #FAFAFA;
       padding: 46px 40px 0px 40px;
       height: calc(100vh - 106px - 137px);
+      overflow: scroll;
       }
       &__name{
         color: $main-message-color;
@@ -123,8 +128,11 @@ html,body{
         padding: 10px 10px 0 0;
         margin: 0 auto;
         float: left;
+        .file{
+          display: none;
+        }
       }
-      .chat-send{
+      .btn{
         height: 50px;
         width:100px;
         color: $white-color;

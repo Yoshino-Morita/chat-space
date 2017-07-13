@@ -1,7 +1,7 @@
 .chat-main
   .right-header
     .right-header__button
-      = link_to "Edit","/groups/2/edit"
+      = link_to "Edit","/groups/#{@group.id}/edit"
   .left-header
     .chat-main__title
       = @group.name
@@ -9,18 +9,26 @@
       - @group.users.each do |user|
         = user.name
   .chat-main__contents
-    / = form_for @messages, html{class = 'chat-group-form__input'} do |f|
-    /   %ul.chat-main__post
-    /     %li.chat-main__name SampleName 1
-    /       %p.chat-main__message こんにちは
-    /     %li.chat-main__name SampleName 2
-    /       %p.chat-main__message こんばんわ
-    /     %li.chat-main__name SampleName 3
-    /       %p.chat-main__message おやすみ
-    /     %li.chat-main__name SampleName 4
-    /       %p.chat-main__message おはよう
-  .chat-main__send
-    %form{:action => " ", :method => "post"}
-    %input.chat-input{:placeholder => "type a message",:name => "name",:type => "text"}/
-    .main-icon <i class="fa fa-file-image-o" aria-hidden="true"></i>
-    %input.chat-send{:type => "submit", :value => "Send"}/
+    - @messages.each do |message|
+      %ul.chat-main__name
+        %li.chat-main__name
+          = message.user.name
+          = message.created_at.strftime('%Y/%m/%d %H:%M')
+          %p.chat-main__messages
+            = message.body
+            = image_tag message.image.to_s
+  = form_for([@group, @message], html:{class: "chat-group-form__input"}) do |f|
+    .chat-main__send
+      = f.text_field :body, placeholder: "type a message", class: "chat-input"
+      .main-icon
+        = f.label :image do
+          %i.fa.fa-file-image-o
+            = f.file_field :image , class: 'file'
+      .chat-send
+        = f.submit "Send" , class: 'btn'
+
+/ <i class="fa fa-file-image-o" aria-hidden="true"></i>
+/         = f.label :image
+/         = image_tag @user.image.thumb.url if @user.image?
+/         = f.file_field :image
+/         = f.hidden_field :image_cache
