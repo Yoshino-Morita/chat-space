@@ -1,0 +1,11 @@
+
+.right-header
+  .right-header__button
+    = link_to "Edit","/groups/#{@group.id}/edit"
+.left-header
+  .chat-main__title
+    = @group.name
+  .chat-main__member
+    - @group.users.each do |user|
+      = user.name
+  = render 'body'
