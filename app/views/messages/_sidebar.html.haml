@@ -1,15 +1,12 @@
 .chat-side
-  .chat-side__user SampleName
+  .chat-side__user
+    = current_user.name
   %ul.chat-side__icons
     %li.chat-side__icon
-      = link_to edit_user_path(current_user) do
+      = link_to edit_user_path(current_user),class: "symbol" do
         %i.fa.fa-cog
     %li.chat-side__icon
-      = link_to new_group_path(current_user) do
+      = link_to new_group_path(current_user),class: "symbol" do
         %i.fa.fa-pencil-square-o
   .chat-side__contents
-    - @groups.each  do |group|
-      %li.chat-side__group
-        %p
-        = group.name
-      %p.chat-side__message まだメッセージはありません
+    = render @groups

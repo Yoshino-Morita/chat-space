@@ -9,8 +9,8 @@ class GroupsController < ApplicationController
   end
 
   def update
-     @group = Group.new(group_params)
-    if @group.save
+       @group = Group.find(params[:id])
+    if @group.update(group_params)
        redirect_to root_path, notice: 'グループの編集が完了しました'
     else
       render :new
@@ -19,6 +19,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
+    @messages = Message.new
   end
 
   def create

@@ -1,0 +1,6 @@
+= link_to "/groups/#{group.id}/messages" do
+  %li.chat-side__group
+    %p
+      = group.name
+  %p.chat-side__message
+    = group.message_present

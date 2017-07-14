@@ -1,0 +1,10 @@
+.chat-main__contents
+  = render @messages
+= form_for([@group, @message], html:{class: "chat-group-form__input"}) do |f|
+  .chat-main__send
+    = f.text_field :body, placeholder: "type a message", class: "chat-input"
+    %label.main-icon
+      %i.fa.fa-file-image-o
+      = f.file_field :image, class: 'file'
+    .chat-send
+      = f.submit "Send", class: 'btn'
