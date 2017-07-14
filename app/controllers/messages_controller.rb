@@ -1,11 +1,11 @@
 class MessagesController < ApplicationController
 
-before_action :set_group,except: :index
+  before_action :set_group
 
   def index
     set_message
     set_group
-    @messages = @group.messages
+    @messages = @group.messages.includes(:user)
   end
 
   def new
