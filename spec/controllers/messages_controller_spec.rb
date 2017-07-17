@@ -10,30 +10,25 @@ describe MessagesController, type: :controller  do
 
      before do
       login_user user
+      get :index, params: {group_id: group}
      end
         it"is assigns @message" do
-        new_message = Message.new
-        get :index, params: {group_id:group}
-        expect(assigns(:message).attributes).to eq(new_message.attributes)
+        
+        expect(assigns(:message)).to be_a_new(Message)
         end
         it"is assigns @group" do
-          get :index, params: {group_id: group}
           expect(assigns(:group)).to eq(group)
         end
         it"assigns the requested contact to @groups"do
-        groups = create_list(:group, 3)
-          groups.each do |g|
-           g.members.create(user: user)
-          end
-        get :index, params: { group_id: groups.last.id }
-        groups = user.groups
-        expect(assigns(:groups)).to eq groups
+          group = user.groups.first
+          get :index, params: { group_id: group.id }
+          groups = user.groups
+          expect(assigns(:groups)).to eq groups
         end
         
         #@messages
         it"is assigns the requested contact to @messages"do
         messages = group.messages
-        get :index, params: { group_id: group}
         expect(assigns(:messages)).to eq messages
         end
         #ビューへの遷移
@@ -52,9 +47,9 @@ describe MessagesController, type: :controller  do
      context 'when user log_in' do
         #ログインしているかつ、保存に成功した場合
        it'can create message'do
-        expect do
+        expect {
           post :create, params: { message: attributes_for(:message), group_id: group.id }
-        end.to change(Message, :count).by(1)
+        }.to change(Message, :count).by(1)
        end
 
        it"is redirect to group_messages_path"do
@@ -65,9 +60,9 @@ describe MessagesController, type: :controller  do
        end
          #ログインしているが、保存に失敗した場合
        it'can not create message'do
-          expect do
+          expect {
           post :create, params: { message: attributes_for(:message,body: nil, image: nil), group_id: group.id }
-          end.to change(Message, :count).by(0)
+          }.to change(Message, :count).by(0)
        end
         it"is redirect to index"do
           post :create, params: { message: attributes_for(:message,text: nil, image: nil), group_id: group.id }

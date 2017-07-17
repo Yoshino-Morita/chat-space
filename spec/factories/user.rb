@@ -9,7 +9,7 @@ include ActionDispatch::TestProcess
       password_confirmation pass
 
       after(:create) do |user|
-      create(:member, user: user, group: create(:group))
+        create( :member, user: user, group: create(:group) )
       end
     end
 
