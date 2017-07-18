@@ -1,10 +1,9 @@
 class MessagesController < ApplicationController
 
-  before_action :set_group
+  before_action :set_group, :set_groups_and_set_messages
 
   def index
     @message = Message.new
-    set_groups_and_set_messages
   end
 
   def create
@@ -15,7 +14,6 @@ class MessagesController < ApplicationController
       format.json
     end
    else
-    set_groups_and_set_messages
     flash.now[:alert] = "メッセージを入力してください"
     render :index
    end
