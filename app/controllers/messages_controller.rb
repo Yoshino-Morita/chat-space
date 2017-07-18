@@ -4,8 +4,7 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @groups = current_user.groups.includes(:messages)
-    @messages = @group.messages.includes(:user)
+    set_groups_and_set_messages
   end
 
   def create
@@ -16,8 +15,7 @@ class MessagesController < ApplicationController
       format.json
     end
    else
-    @groups = current_user.groups.includes(:messages)
-    @messages = @group.messages.includes(:user)
+    set_groups_and_set_messages
     flash.now[:alert] = "メッセージを入力してください"
     render :index
    end
@@ -31,6 +29,11 @@ class MessagesController < ApplicationController
 
   def set_group
     @group = Group.find(params[:group_id])
+  end
+
+  def set_groups_and_set_messages
+     @groups = current_user.groups.includes(:messages)
+     @messages = @group.messages.includes(:user)
   end
 
 end
