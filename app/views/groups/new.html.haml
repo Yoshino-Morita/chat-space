@@ -29,7 +29,9 @@
       .chat-group-form__field--left
         = f.label "チャットメンバー", class: 'chat-group-form__label', id: 'member_add'
       .chat-group-form__field--right
-        .chat-group-form__search.clearfix
+        .chat-group-user.clearfix
+          %p.chat-group-user__name
+            = current_user.name
         %div#member-search-result
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
