@@ -7,4 +7,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :name,:email, presence: true,on: :update
+
+  scope :name_search,->(current_user,keyword){ where('name LIKE(?)',"%#{keyword}%").where.not( id: current_user )}
 end
