@@ -1,5 +1,15 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.name_search(current_user, params[:keyword])
+    respond_to do |format|
+      format.json
+    end
+  end
+
+  def create
+  end
+
   def edit
   end
 
@@ -8,9 +18,6 @@ class UsersController < ApplicationController
     if user.update(user_params)
        redirect_to root_path
     end
-  end
-
-  def create
   end
 
   private
