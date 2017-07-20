@@ -1,5 +1,5 @@
-%ul.chat-main__name
-  %li.chat-main__name
+%li.chat-main__name{data: { id: message.id }}
+  %div.chat-main__name
     = message.user.name
     = message.created_at.strftime('%Y/%m/%d %H:%M')
     %p.chat-main__messages

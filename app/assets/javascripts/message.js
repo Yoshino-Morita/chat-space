@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(message){
-    var html = `<ul class='chat-main__name'>
-                <li class='chat-main__name'>${message.user_name}${message.created}
+    var html = `<li class='chat-main__name' data-message-id="${message.id}" >
+                <div class='chat-main__name'>${message.user_name}${message.created}
                 <p class='chat-main__messages'>`;
     if(message.body.length === 0){
      html += `<img src= "${message.image.url}" alt="photo">`;
@@ -36,4 +36,28 @@ $(function(){
   })
     return false;
  })
+  var interval = setInterval(function(){
+    if(window.location.href.match(/\/groups\/\d+\/messages/)){
+      $.ajax({
+          type: 'GET',
+          url: location.href,
+          dataType: 'json'
+    })
+    .done(function(data){
+     var id = $("li.chat-main__name:last-child").attr('data-id');
+     var insertHTML = '' ;
+     data.messages.forEach(function(message){
+      if (message.id > id){
+       insertHTML += buildHTML(message);
+      }
+     });
+     $('.chat-main__contents').append(insertHTML);
+     $('.chat-main__contents').animate({scrollTop: $('.chat-main__contents')[0].scrollHeight}, 'fast');
+    })
+    .fail(function(data){
+      alert('自動更新に失敗しました');
+    });
+  }else{
+    clearInterval(interval);
+  }}, 5 * 1000 );
 });
