@@ -45,7 +45,6 @@ $(function(){
     })
     .done(function(data){
      var id = $("li.chat-main__name:last-child").attr('data-id');
-     console.log(id);
      var insertHTML = '' ;
      data.messages.forEach(function(message){
       if (message.id > id){
